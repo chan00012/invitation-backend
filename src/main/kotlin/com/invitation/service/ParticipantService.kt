@@ -15,7 +15,7 @@ class ParticipantService(
 ) {
 
     fun create(participant: Participant): Participant {
-        val event = eventRepository.findById(participant.eventId!!)
+        val event = eventRepository.findById(participant.eventId)
         val jpaParticipant = participantMapper.toEntity(participant)
         jpaParticipant.event = event.get()
         jpaParticipant.code = generateParticipantCode()
