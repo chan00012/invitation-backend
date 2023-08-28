@@ -1,0 +1,4 @@
+complexity:
+  active: true
+  LongParameterList:
+    constructorThreshold : 15

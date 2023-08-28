@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sa
+    username: sa
+    password: password
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
