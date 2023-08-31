@@ -1,1 +1,1 @@
-web: java -jar build/libs/invitation-0.0.1.jar --server.port=$PORT
+web: ./gradlew bootRun --args='--spring.profiles.active=prod'
