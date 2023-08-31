@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.2"
-    id("io.gitlab.arturbosch.detekt") version "1.18.1"
     kotlin("jvm") version "1.9.0"
     kotlin("kapt") version "1.9.0"
     kotlin("plugin.spring") version "1.9.0"
@@ -11,7 +10,7 @@ plugins {
 }
 
 group = "com"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -44,11 +43,6 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-detekt {
-    config = files("./detekt-config.yml")
-    buildUponDefaultConfig = true
 }
 
 kapt {
