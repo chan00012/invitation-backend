@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://ec2-34-236-103-63.compute-1.amazonaws.com:5432/dds6u73qog56re
-    username: zudmolulruckdp
-    password: b7636588f03b7008305f1aac7109e254258dadf14fbd483e9e6fc8f6ce36bb1c
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
-      dialect: org.hibernate.dialect.PostgreSQLDialect
+      dialect: org.hibernate.dialect.H2Dialect
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 

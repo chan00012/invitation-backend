@@ -10,3 +10,6 @@ spring:
       dialect: org.hibernate.dialect.PostgreSQLDialect
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+send-grid:
+  api-key: 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

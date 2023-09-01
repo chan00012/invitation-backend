@@ -1,4 +1,4 @@
-package com.invitation.integrationtest
+package com.invitation.integrationTest
 
 import com.invitation.database.repository.EventRepository
 import com.invitation.database.repository.LocationRepository

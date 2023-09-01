@@ -32,6 +32,8 @@ dependencies {
     testRuntimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.mapstruct:mapstruct:1.4.2.Final")
+    compileOnly("com.sendgrid:sendgrid-java:4.0.1")
+    testImplementation("com.h2database:h2")
 }
 
 tasks.withType<KotlinCompile> {
