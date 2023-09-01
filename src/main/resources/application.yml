@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/sa
+    username: sa
+    password: password
   jpa:
     show-sql: true
     hibernate:
@@ -12,4 +12,4 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
 send-grid:
-  api-key: ${SENDGRID_API_KEY}
+  api-key: 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
