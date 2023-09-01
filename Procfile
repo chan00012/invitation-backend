@@ -1,1 +1,1 @@
-web: java -jar build/libs/invitation-0.0.1.jar --server.port=$PORT -Dspring.profiles.active=prod
+web: java -jar build/libs/invitation-0.0.1.jar --server.port=$PORT --spring.profiles.active=prod
