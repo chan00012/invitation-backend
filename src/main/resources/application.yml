@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/sa
-    username: sa
-    password: password
+    url: jdbc:postgresql://ep-twilight-wildflower-49771409.ap-southeast-1.aws.neon.tech/neondb
+    username: chan00012
+    password: password=APEkWatq95jm
   jpa:
     show-sql: true
     hibernate:
