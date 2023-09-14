@@ -1,5 +1,6 @@
 package com.invitation.controller
 
+import com.invitation.database.entity.InviteStatus
 import com.invitation.service.InvitationService
 import com.invitation.service.dto.AddParticipantRequest
 import com.invitation.service.dto.CreateEventRequest
@@ -7,6 +8,7 @@ import com.invitation.service.dto.CreateOwnerRequest
 import com.invitation.service.dto.GetEventResponse
 import com.invitation.service.dto.GetOwnerResponse
 import com.invitation.service.dto.GetParticipantResponse
+import com.invitation.service.dto.ResponseWrapper
 import com.invitation.service.dto.UpdateParticipantInviteStatusRequest
 import com.invitation.service.model.Event
 import com.invitation.service.model.Owner
@@ -65,8 +67,9 @@ class InvitationController(
     }
 
     @PatchMapping("/participant")
-    fun updateParticipantInviteStatus(@RequestBody updateParticipantStatusRequest: UpdateParticipantInviteStatusRequest): Participant {
+    fun updateParticipantInviteStatus(@RequestBody updateParticipantStatusRequest: UpdateParticipantInviteStatusRequest): ResponseWrapper<InviteStatus> {
         logger.info { "updating invite status of participant id: ${updateParticipantStatusRequest.participantId}" }
-        return invitationService.updateParticipantInviteStatus(updateParticipantStatusRequest)
+        val result = invitationService.updateParticipantInviteStatus(updateParticipantStatusRequest)
+        return ResponseWrapper(result)
     }
 }

@@ -13,5 +13,7 @@ interface ParticipantMapper {
 
     fun toModel(jpaParticipants: List<JpaParticipant>): List<Participant>
 
+    @Mapping(target = "role", constant = "GUEST")
+    @Mapping(target = "inviteStatus", constant = "PENDING")
     fun toEntity(participant: Participant): JpaParticipant
 }

@@ -5,14 +5,14 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 data class CreateEventRequest(
-    var name: String,
-    var date: LocalDate,
+    val name: String,
+    val date: LocalDate,
 
     @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
-    var startDateTime: LocalDateTime,
+    val startDateTime: LocalDateTime,
 
     @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
-    var endDateTime: LocalDateTime,
-    var locations: List<CreateLocationRequest>,
-    var ownerId: Long,
+    val endDateTime: LocalDateTime,
+    val locations: List<CreateLocationRequest>,
+    val ownerId: Long,
 )

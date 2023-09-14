@@ -10,7 +10,6 @@ import org.mapstruct.Mapping
 @Mapper(componentModel = "spring")
 interface ParticipantDtoMapper {
 
-    @Mapping(target = "inviteStatus", constant = "PENDING")
     fun map(addParticipantRequest: AddParticipantRequest): Participant
 
     fun map(participant: Participant): GetParticipantResponse
@@ -20,6 +19,5 @@ interface ParticipantDtoMapper {
     @Mapping(source = "participantId", target = "id")
     @Mapping(target = "firstName", constant = "")
     @Mapping(target = "lastName", constant = "")
-    @Mapping(target = "role", constant = "GUEST")
     fun map(updateParticipantStatusRequest: UpdateParticipantInviteStatusRequest): Participant
 }

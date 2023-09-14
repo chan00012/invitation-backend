@@ -29,7 +29,8 @@ class JpaParticipant(
     var lastName: String,
 
     @Enumerated(EnumType.STRING)
-    var role: ParticipantRole,
+    var role: ParticipantRole = ParticipantRole.GUEST,
+
     @Column(name = "contact_number")
     var contactNumber: String? = null,
     var email: String? = null,
@@ -39,7 +40,7 @@ class JpaParticipant(
 
     @Enumerated(EnumType.STRING)
     @Column(name = "invite_status")
-    var inviteStatus: InviteStatus,
+    var inviteStatus: InviteStatus = InviteStatus.PENDING,
 
     @Column(name = "table_number")
     var tableNumber: Int? = null,

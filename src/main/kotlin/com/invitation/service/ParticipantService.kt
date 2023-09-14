@@ -1,5 +1,6 @@
 package com.invitation.service
 
+import com.invitation.database.entity.InviteStatus
 import com.invitation.database.repository.EventRepository
 import com.invitation.database.repository.ParticipantRepository
 import com.invitation.mappers.model.ParticipantMapper
@@ -26,13 +27,13 @@ class ParticipantService(
 
     fun updateInviteStatus(participant: Participant): Participant {
         var existingJpaParticipant = participantRepository.findById(participant.id!!).get()
-        existingJpaParticipant.inviteStatus = participant.inviteStatus
+        existingJpaParticipant.inviteStatus = participant.inviteStatus!!
         existingJpaParticipant.contactNumber = participant.contactNumber
         existingJpaParticipant.email = participant.email
         existingJpaParticipant.lastUpdate = LocalDateTime.now()
 
-        participantRepository.save(existingJpaParticipant)
-        return participantMapper.toModel(existingJpaParticipant)
+        var updatedJpaParticipant = participantRepository.save(existingJpaParticipant)
+        return participantMapper.toModel(updatedJpaParticipant)
     }
 
     fun getByEventId(eventId: Long): List<Participant> {

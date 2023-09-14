@@ -1,5 +1,6 @@
 package com.invitation.service
 
+import com.invitation.database.entity.InviteStatus
 import com.invitation.mappers.dto.EventDtoMapper
 import com.invitation.mappers.dto.OwnerDtoMapper
 import com.invitation.mappers.dto.ParticipantDtoMapper
@@ -20,6 +21,7 @@ class InvitationService(
     private val ownerService: OwnerService,
     private val eventService: EventService,
     private val participantService: ParticipantService,
+    private val emailService: EmailService,
     private val ownerDtoMapper: OwnerDtoMapper,
     private val eventDtoMapper: EventDtoMapper,
     private val participantDtoMapper: ParticipantDtoMapper,
@@ -56,8 +58,15 @@ class InvitationService(
         return participantDtoMapper.map(participants)
     }
 
-    fun updateParticipantInviteStatus(updateParticipantStatusRequest: UpdateParticipantInviteStatusRequest): Participant {
+    fun updateParticipantInviteStatus(updateParticipantStatusRequest: UpdateParticipantInviteStatusRequest): InviteStatus {
         val updateParticipant = participantDtoMapper.map(updateParticipantStatusRequest)
-        return participantService.updateInviteStatus(updateParticipant)
+        val updatedParticipant = participantService.updateInviteStatus(updateParticipant)
+
+        if (updatedParticipant.inviteStatus == InviteStatus.ACCEPTED) {
+            var dynamicTemplateData = mapOf("full_name" to updatedParticipant.fullname())
+            emailService.sendConfirmationEmail(updateParticipant.email!!, dynamicTemplateData)
+        }
+
+        return updatedParticipant.inviteStatus!!
     }
 }

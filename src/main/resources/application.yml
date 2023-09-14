@@ -6,10 +6,12 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
       dialect: org.hibernate.dialect.PostgreSQLDialect
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
 send-grid:
-  api-key: qwdfewe545qweu37fh98h9nejeh30h@#38rh
+  api-key: 876876876867876786
+  from: christianangeli031524@gmail.com
+  confirmation-template-id: d-e57f3957858c45a6892e872d5d110d59

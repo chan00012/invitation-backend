@@ -11,14 +11,18 @@ open class Participant(
     var firstName: String,
     var middleInitial: Char? = null,
     var lastName: String,
-    var role: ParticipantRole,
+    var role: ParticipantRole? = null,
     var contactNumber: String? = null,
     var email: String? = null,
     var isVip: Boolean = false,
-    var inviteStatus: InviteStatus,
+    var inviteStatus: InviteStatus? = null,
     var tableNumber: Int? = null,
 
     @JsonFormat(pattern = "MM-dd-yyyy HH:mm:ss")
     var lastUpdate: LocalDateTime? = null,
     var code: String? = null,
-)
+) {
+    fun fullname(): String {
+        return "${this.firstName} ${this.lastName}"
+    }
+}

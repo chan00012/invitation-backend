@@ -21,18 +21,20 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("io.github.microutils:kotlin-logging-jvm:2.0.11")
     implementation("org.mapstruct:mapstruct:1.4.2.Final")
+    implementation("com.sendgrid:sendgrid-java:4.9.3")
     kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
     runtimeOnly("org.postgresql:postgresql")
     testRuntimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.mapstruct:mapstruct:1.4.2.Final")
-    compileOnly("com.sendgrid:sendgrid-java:4.0.1")
     testImplementation("com.h2database:h2")
 }
 
