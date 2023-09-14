@@ -13,3 +13,5 @@ spring:
 
 send-grid:
   api-key: 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
+  from: testemail@gmail.com
+  confirmation-template-id: d-e57f3957858c45a6892e872d5d110d59
